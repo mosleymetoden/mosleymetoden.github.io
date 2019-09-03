@@ -1,2 +1,0 @@
-# mosleymetoden.github.io
-mosleymetoden

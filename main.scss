@@ -1,0 +1,32 @@
+---
+
+---
+@import url('https://fonts.googleapis.com/css?family=Manjari&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+html, body, h1 {
+    margin:0;
+    padding:0;
+    font-family: 'Manjari', sans-serif;
+}
+.header {
+    height:100px;
+    background: rgb(0, 255, 191);
+}
+.side {
+    display: block;
+    width:100vw;
+    height:calc(100vh - 100px);
+    background:#eee;
+    
+}
+
+.side--one {
+    background: url('//i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/50-super-healthy-foods-1296x728-feature.jpg?w=1575 750w');
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
