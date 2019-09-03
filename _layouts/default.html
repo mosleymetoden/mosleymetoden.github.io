@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+</head>
+
+<body>
+    <span class="logo">
+        <span class="logo__first">hello</span>
+        <span class="logo__second">world</span>
+    </span>
+    <nav id="menu" class="menu">
+        <i class="menu__icon"></i>
+        <ul class="menu__menu">
+            <li class="menu__menu-item"><a href="#" class="menu__menu-item-link">Home</a></li>
+            <li class="menu__menu-item"><a href="#" class="menu__menu-item-link">Lorem</a></li>
+            <li class="menu__menu-item"><a href="#" class="menu__menu-item-link">Ipsum</a></li>
+            <li class="menu__menu-item"><a href="#" class="menu__menu-item-link">Dolor sit</a></li>
+            <li class="menu__menu-item"><a href="#" class="menu__menu-item-link">Gello world</a></li>
+            <li class="menu__menu-item"><a href="#" class="menu__menu-item-link">Whats happening</a></li>
+            <li class="menu__menu-item"><a href="#" class="menu__menu-item-link">Hey hey ho ho - let's go!</a></li>
+        </ul>
+    </nav>
+    {{ content }}
+
+    <script>
+
+        (function(window, document) {
+            window.addEventListener('DOMContentLoaded', function() {
+                var menuIcon = document.querySelector('#menu .menu__icon');
+                var menu = document.querySelector('#menu .menu__menu');
+                menuIcon.addEventListener('click', function() {
+                    menuIcon.classList.toggle('menu__icon--open')
+                    menu.classList.toggle('menu__menu--show')
+                });
+            })
+        }(window, document));
+
+    </script>
+</body>
+
+</html>
