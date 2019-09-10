@@ -148,12 +148,16 @@ html, body {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        padding: 0 20px;
 
         &.side__content--centered {
             margin: 0 auto;
-            width:50%;
+            
             left: 0;
             right: 0;
+            @include desktop {
+                width:50%;
+            }
         }
     }
 
@@ -190,11 +194,15 @@ html, body {
         padding:40px;
         background:#0008;
         color:#fff;
-        font-size: 16pt;
+        font-size: 12pt;
+
+        @include desktop {
+            font-size: 16pt;
+        }
     }
 
     .side__heading {
-        font-size: 6em;
+        font-size: 3em;
         display: block;
         font-weight: 900;
         word-break: break-word; 
@@ -266,16 +274,20 @@ html, body {
 
     &.side--one {
         background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
-    
-        .side__content {
-            padding: 0 100px;
+        
+        @include desktop {
+            .side__content {
+                padding: 0 100px;
+            }
+
+            .side__body {
+                width:50%;
+            }
         }
+        
         .side__body {
             font-weight: 100;
             letter-spacing: 1px;
-            @include desktop {
-                width:50%;
-            }
         }
         
     }
