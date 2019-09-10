@@ -4,6 +4,9 @@
 
 $color: rgb(255, 0, 128);
 $color: #008266;
+$mobile-max: 767px;
+$desktop-min: 768px;
+
 @mixin icon($content) {
     font-weight: 900;
     font-family: "Font Awesome 5 Free";
@@ -18,6 +21,17 @@ $color: #008266;
     &:before {
         content: $content;
     }
+}
+
+@mixin mobile {
+	@media only screen and (max-width: $mobile-max) {
+		@content;
+	}
+}
+@mixin desktop {
+	@media only screen and (min-width: $desktop-min) {
+		@content;
+	}
 }
 
 * {
@@ -183,6 +197,12 @@ html, body {
         font-size: 6em;
         display: block;
         font-weight: 900;
+        word-break: break-word; 
+                
+        @include desktop {
+            font-size: 6em;
+            width:50%;
+        }
     }
 
     .side__block-container {
@@ -248,12 +268,14 @@ html, body {
         background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
     
         .side__content {
-            padding-left: 100px;
+            padding: 0 100px;
         }
         .side__body {
             font-weight: 100;
             letter-spacing: 1px;
-            width:50%;
+            @include desktop {
+                width:50%;
+            }
         }
         
     }
