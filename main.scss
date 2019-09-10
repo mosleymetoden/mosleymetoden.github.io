@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Manjari:100,400,700&display=swap');
 
 $color: rgb(255, 0, 128);
+$color: #008266;
 @mixin icon($content) {
     font-weight: 900;
     font-family: "Font Awesome 5 Free";
@@ -26,7 +27,20 @@ html, body {
     margin:0;
     padding:0;
     font-family: 'Manjari', sans-serif;
-    overflow-x:hidden;
+    //overflow-x:hidden;
+}
+
+.button {
+    background: $color;
+    color: #fff;
+    font-weight: 900;
+    font-size: 18pt;
+    display: block;
+    padding: 15px 20px 10px 20px;
+
+    &.button--fullwidth {
+        width: 100%;
+    }
 }
 
 .logo {
@@ -99,25 +113,76 @@ html, body {
     }
 }
 
+.line-break {
+    width: 100%;
+}
+
 .side {
     display: block;
-    width:100vw;
+    width:100%;
     height:100vh;
     background:#eee;
     overflow: hidden;
-
-    display: flex;
-    align-items: center;
     
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    position: relative;
+
+    
+    .side__content {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.side__content--centered {
+            margin: 0 auto;
+            width:50%;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .side__to-top,
+    .side__read-more {
+        display: block;
+        width:100px;
+        height:100px;
+        border-radius: 50%;
+        background:#0008;
+        color:#fff;
+        text-align:center;
+        font-size: 50px;
+        text-decoration: none;
+        padding-top:25px;
+
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50px);
+
+        &.side__to-top {
+            @include icon('\f106');
+        }
+        &.side__read-more {
+            @include icon('\f107');
+        }
+        
+    }
+
+
+    .side__body {
+        display: block;
+        padding:40px;
+        background:#0008;
+        color:#fff;
+        font-size: 16pt;
+    }
 
     .side__heading {
         font-size: 6em;
-        max-width: 50vw;
-        margin-left:100px;
         display: block;
+        font-weight: 900;
     }
 
     .side__block-container {
@@ -125,10 +190,11 @@ html, body {
         grid-column-gap: 50px;
         grid-template-columns: 1fr 1fr 1fr;
 
-        width:50vw;
+        max-width:50vw;
         margin:0 auto;
 
         .side__block {
+            position: relative;
             background: #fffe;
             min-height: 300px;
             border-radius: 5px;
@@ -136,12 +202,20 @@ html, body {
             text-align: center;
         }
 
+        .side__block-button {
+            display: block;
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+        }
+
         .side__block-header {
             font-size: 2em;
             margin:20px;
         }
         .side__block-body {
-            
+            padding-bottom:90px;
         }
 
         .side__block-icon {
@@ -170,17 +244,123 @@ html, body {
 
     }
 
+    &.side--one {
+        background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
+    
+        .side__content {
+            padding-left: 100px;
+        }
+        .side__body {
+            font-weight: 100;
+            letter-spacing: 1px;
+            width:50%;
+        }
+        
+    }
+    &.side--two {
+        background: #222;
+        color:#fff;
+    }
+    
+    &.side--three {
+        background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/20-forsakra-1.jpg');
+    
+        .side__content {
+            margin: 0 auto;
+            width:50%;
+            left: 0;
+            right: 0;
+        }
+    }
+    
+    &.side--four {
+        background-image: url('https://www.skandia.se/globalassets/bilder/ovrigt-specifika-sidor---gor-en-mapp/kampanj-bolan/splash-med-110-procent-med-text.jpg');
+        //background-image: url('https://images.ctfassets.net/wy4h2xf1swlt/1NSDfLwKaqG4Tkf9n9F6jf/02ae6117091dffc4de74d32770e85b68/iStock-689709414.jpg');
+        color:#fff;
+        .side__content {
+            padding-left: 100px;
+        }
+    }
     
 }
 
-.side--one {
-    background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
-}
-.side--two {
-    background: #222;
-    color:#fff;
-}
+.recipe {
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        'ingredients instructions instructions';
 
-.side--three {
-    background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/20-forsakra-1.jpg');
+    grid-column-gap: 50px;
+    //grid-template-columns: 1fr 1fr 2fr;
+
+    max-width:50vw;
+    margin:0 auto;
+    .recipe__description {
+        grid-area: header;
+    }
+
+    .recipe__ingredients {
+        grid-area: ingredients;
+        display: inline-block;
+        vertical-align: top;
+
+        .recipe__ingredients-header {
+            font-size: 24pt;
+        }
+        .recipe__ingredients-list {
+            font-size: 16pt;
+            .recipe__ingredients-list-item {
+                position: relative;
+                padding-left:20px;
+                margin-bottom:10px;
+                &:before {
+                    content: "";
+                    background: $color;
+                    border-radius: 50%;
+                    height: 7px;
+                    left: 2px;
+                    position: absolute;
+                    top: 4px;
+                    width: 7px;
+                }
+            }
+        }
+    }
+
+    .recipe__instructions {
+        grid-area: instructions;
+        display: inline-block;
+        vertical-align: top;
+
+        .recipe__instructions-header {
+            font-size: 24pt;
+        }
+        .recipe__instructions-list {
+            counter-reset: step;
+            font-size: 16pt;
+            .recipe__instructions-list-item {
+                position: relative;
+                padding-left:40px;
+                margin-bottom:20px;
+                &:before {
+                    content: counter(step);
+                    box-sizing: border-box;
+                    counter-increment: step;
+                    background: $color;
+                    color: #fff;
+                    text-align: center;
+                    padding-top: 6px;
+                    font-size: 12pt;
+
+                    width:24px;
+                    height:24px;
+                    border-radius: 50%;
+                    left: 2px;
+                    position: absolute;
+                    top: -4px;
+                }
+            }
+        }
+    }
+
 }
