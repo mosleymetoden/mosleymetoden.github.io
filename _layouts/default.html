@@ -4,28 +4,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146963511-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-146963511-1');
+        if (window.location.hostname === 'mosleymetoden.se') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-146963511-1');
+        }
     </script>
 
     <meta charset="UTF-8">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" />
-    <link rel="stylesheet" href="/main.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    <link rel="stylesheet" href="/main.css" />
 </head>
 
 <body>
-    <!-- <span class="logo">
+    <span class="logo">
         <span class="logo__first">hello</span>
         <span class="logo__second">world</span>
-    </span> -->
+    </span>
     <nav id="menu" class="menu">
         <i class="menu__icon"></i>
         <ul class="menu__menu">

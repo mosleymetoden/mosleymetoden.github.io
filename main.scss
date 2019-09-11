@@ -4,8 +4,7 @@
 
 $color: rgb(255, 0, 128);
 $color: #008266;
-$mobile-max: 767px;
-$desktop-min: 768px;
+
 
 @mixin icon($content) {
     font-weight: 900;
@@ -23,13 +22,18 @@ $desktop-min: 768px;
     }
 }
 
-@mixin mobile {
-	@media only screen and (max-width: $mobile-max) {
+@mixin small {
+	@media (min-width: 576px) {
 		@content;
 	}
 }
-@mixin desktop {
-	@media only screen and (min-width: $desktop-min) {
+@mixin medium {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+@mixin large {
+	@media (min-width: 992px) {
 		@content;
 	}
 }
@@ -60,19 +64,19 @@ html, body {
 .logo {
     position: fixed;
     z-index: 1001;
-    top: 50px;
-    left: 50px;
+    top: 10px;
+    left: 10px;
 
     .logo__first {
         color: #000;
         display: block;
-        font-size: 36pt;
+        font-size: 18pt;
         font-weight: 900;
     }
     .logo__second {
         color: $color;
         display: block;
-        font-size: 31pt;
+        font-size: 15pt;
         font-weight: 100;
         line-height: 10pt;
     }
@@ -85,9 +89,9 @@ html, body {
 
         position: fixed;
         z-index: 1001;
-        top: 50px;
-        right: 50px;
-        font-size: 64px;
+        top: 10px;
+        right: 10px;
+        font-size: 32px;
 
         &.menu__icon--open {
             @include icon('\f00d');
@@ -127,57 +131,85 @@ html, body {
     }
 }
 
-.line-break {
-    width: 100%;
-}
 
 .side {
     display: block;
     width:100%;
-    height:100vh;
+    min-height: 100vh;
+    padding: 60px 20px 20px 20px;
     background:#eee;
-    overflow: hidden;
-    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
+    border:1px solid hotpink;
 
+    @include large() {
+        min-height:100vh;
+    }
+
+    .side__heading {
+        font-size: 3em;
+        font-weight: 900;
+        color: #fff;
+        text-shadow: 0 0 3px #000;
+        //word-break: break-all;
+
+        @include large() {
+            width:50%;
+        }
+    }
+
+    .side__body {
+        display: block;
+        padding:30px;
+        margin-top: 30px;
+        background:rgba(0,0,0,.8);
+        color:#fff;
+        font-size: 12pt;
+
+        @include large() {
+            width:50%;
+        }
+    }
+
+    .side__body-list {
+        list-style: circle;
+        margin-left: 20px;
+        margin-top: 20px;
+        li {
+            margin-bottom: 10px;
+        }
+    }
     
     .side__content {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 0 20px;
-
-        &.side__content--centered {
-            margin: 0 auto;
-            
-            left: 0;
-            right: 0;
-            @include desktop {
-                width:50%;
-            }
+        &.side__content--horizontally-centered {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            transform: translateY(-50%);
         }
+        
     }
 
     .side__to-top,
     .side__read-more {
         display: block;
-        width:100px;
-        height:100px;
+        width:50px;
+        height:50px;
         border-radius: 50%;
         background:#0008;
         color:#fff;
         text-align:center;
-        font-size: 50px;
+        font-size: 25px;
         text-decoration: none;
-        padding-top:25px;
+        padding-top:12px;
 
         position: absolute;
-        bottom: 50px;
+        bottom: 20px;
         left: 50%;
-        transform: translateX(-50px);
+        transform: translateX(-25px);
 
         &.side__to-top {
             @include icon('\f106');
@@ -185,41 +217,22 @@ html, body {
         &.side__read-more {
             @include icon('\f107');
         }
-        
     }
 
 
-    .side__body {
-        display: block;
-        padding:40px;
-        background:#0008;
-        color:#fff;
-        font-size: 12pt;
 
-        @include desktop {
-            font-size: 16pt;
-        }
-    }
-
-    .side__heading {
-        font-size: 3em;
-        display: block;
-        font-weight: 900;
-        word-break: break-word; 
-                
-        @include desktop {
-            font-size: 6em;
-            width:50%;
-        }
-    }
 
     .side__block-container {
-        display: grid;
-        grid-column-gap: 50px;
-        grid-template-columns: 1fr 1fr 1fr;
-
-        max-width:50vw;
-        margin:0 auto;
+        @include medium() {
+            
+        }
+        @include large() {
+            display: grid;
+            grid-column-gap: 50px;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin:0 auto;
+            max-width:50vw;
+        }
 
         .side__block {
             position: relative;
@@ -228,6 +241,7 @@ html, body {
             border-radius: 5px;
             padding:40px;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .side__block-button {
@@ -236,6 +250,7 @@ html, body {
             bottom: 40px;
             left: 40px;
             right: 40px;
+            border-radius: 5px;
         }
 
         .side__block-header {
@@ -243,11 +258,15 @@ html, body {
             margin:20px;
         }
         .side__block-body {
-            padding-bottom:90px;
+            display: block;
+            // padding-bottom:90px;
+        }
+        .side__block-body-paragraph {
+            margin-bottom: 20px;
         }
 
         .side__block-icon {
-            font-size: 80px;
+            font-size: 40px;
             font-weight: 900;
             font-family: "Font Awesome 5 Free";
             -moz-osx-font-smoothing: grayscale;
@@ -271,130 +290,294 @@ html, body {
         }
 
     }
-
-    &.side--one {
-        background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
-        
-        @include desktop {
-            .side__content {
-                padding: 0 100px;
-            }
-
-            .side__body {
-                width:50%;
-            }
-        }
-        
-        .side__body {
-            font-weight: 100;
-            letter-spacing: 1px;
-        }
-        
-    }
-    &.side--two {
-        background: #222;
-        color:#fff;
-    }
-    
-    &.side--three {
-        background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/20-forsakra-1.jpg');
-    
-        .side__content {
-            margin: 0 auto;
-            width:50%;
-            left: 0;
-            right: 0;
-        }
-    }
-    
-    &.side--four {
-        background-image: url('https://www.skandia.se/globalassets/bilder/ovrigt-specifika-sidor---gor-en-mapp/kampanj-bolan/splash-med-110-procent-med-text.jpg');
-        //background-image: url('https://images.ctfassets.net/wy4h2xf1swlt/1NSDfLwKaqG4Tkf9n9F6jf/02ae6117091dffc4de74d32770e85b68/iStock-689709414.jpg');
-        color:#fff;
-        .side__content {
-            padding-left: 100px;
-        }
-    }
     
 }
 
-.recipe {
-    display: grid;
-    grid-template-areas:
-        'header header header'
-        'ingredients instructions instructions';
-
-    grid-column-gap: 50px;
-    //grid-template-columns: 1fr 1fr 2fr;
-
-    max-width:50vw;
-    margin:0 auto;
-    .recipe__description {
-        grid-area: header;
-    }
-
-    .recipe__ingredients {
-        grid-area: ingredients;
-        display: inline-block;
-        vertical-align: top;
-
-        .recipe__ingredients-header {
-            font-size: 24pt;
-        }
-        .recipe__ingredients-list {
-            font-size: 16pt;
-            .recipe__ingredients-list-item {
-                position: relative;
-                padding-left:20px;
-                margin-bottom:10px;
-                &:before {
-                    content: "";
-                    background: $color;
-                    border-radius: 50%;
-                    height: 7px;
-                    left: 2px;
-                    position: absolute;
-                    top: 4px;
-                    width: 7px;
-                }
-            }
-        }
-    }
-
-    .recipe__instructions {
-        grid-area: instructions;
-        display: inline-block;
-        vertical-align: top;
-
-        .recipe__instructions-header {
-            font-size: 24pt;
-        }
-        .recipe__instructions-list {
-            counter-reset: step;
-            font-size: 16pt;
-            .recipe__instructions-list-item {
-                position: relative;
-                padding-left:40px;
-                margin-bottom:20px;
-                &:before {
-                    content: counter(step);
-                    box-sizing: border-box;
-                    counter-increment: step;
-                    background: $color;
-                    color: #fff;
-                    text-align: center;
-                    padding-top: 6px;
-                    font-size: 12pt;
-
-                    width:24px;
-                    height:24px;
-                    border-radius: 50%;
-                    left: 2px;
-                    position: absolute;
-                    top: -4px;
-                }
-            }
-        }
-    }
-
+.side--one {
+    background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
+    background-image: url('https://images.ctfassets.net/wy4h2xf1swlt/1NSDfLwKaqG4Tkf9n9F6jf/02ae6117091dffc4de74d32770e85b68/iStock-689709414.jpg');
 }
+.side--two {
+    background: #222;
+    color:#fff;
+}
+
+.side--three {
+    background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/20-forsakra-1.jpg');
+}
+
+.side--four {
+    background-image: url('https://www.skandia.se/globalassets/bilder/ovrigt-specifika-sidor---gor-en-mapp/kampanj-bolan/splash-med-110-procent-med-text.jpg');
+    
+}
+
+// .side {
+//     display: block;
+//     width:100%;
+//     height:100vh;
+//     background:#eee;
+//     overflow: hidden;
+    
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center;
+//     position: relative;
+
+    
+//     .side__content {
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         padding: 0 20px;
+
+//         &.side__content--centered {
+//             margin: 0 auto;
+            
+//             left: 0;
+//             right: 0;
+//             @include desktop {
+//                 width:50%;
+//             }
+//         }
+//     }
+
+//     .side__to-top,
+//     .side__read-more {
+//         display: block;
+//         width:100px;
+//         height:100px;
+//         border-radius: 50%;
+//         background:#0008;
+//         color:#fff;
+//         text-align:center;
+//         font-size: 50px;
+//         text-decoration: none;
+//         padding-top:25px;
+
+//         position: absolute;
+//         bottom: 50px;
+//         left: 50%;
+//         transform: translateX(-50px);
+
+//         &.side__to-top {
+//             @include icon('\f106');
+//         }
+//         &.side__read-more {
+//             @include icon('\f107');
+//         }
+//     }
+
+
+//     .side__body {
+//         display: block;
+//         padding:40px;
+//         background:#0008;
+//         color:#fff;
+//         font-size: 12pt;
+
+//         @include desktop {
+//             font-size: 16pt;
+//         }
+//     }
+
+//     .side__heading {
+//         font-size: 3em;
+//         display: block;
+//         font-weight: 900;
+//         word-break: break-word; 
+                
+//         @include desktop {
+//             font-size: 6em;
+//             width:50%;
+//         }
+//     }
+
+
+//     .side__block-container {
+//         @include desktop {
+//             display: grid;
+//             grid-column-gap: 50px;
+//             grid-template-columns: 1fr 1fr 1fr;
+
+//             max-width:50vw;
+//             margin:0 auto;
+//         }
+        
+
+//         .side__block {
+//             position: relative;
+//             background: #fffe;
+//             min-height: 300px;
+//             border-radius: 5px;
+//             padding:40px;
+//             text-align: center;
+//         }
+
+//         .side__block-button {
+//             display: block;
+//             position: absolute;
+//             bottom: 40px;
+//             left: 40px;
+//             right: 40px;
+//         }
+
+//         .side__block-header {
+//             font-size: 2em;
+//             margin:20px;
+//         }
+//         .side__block-body {
+//             padding-bottom:90px;
+//         }
+
+//         .side__block-icon {
+//             font-size: 80px;
+//             font-weight: 900;
+//             font-family: "Font Awesome 5 Free";
+//             -moz-osx-font-smoothing: grayscale;
+//             -webkit-font-smoothing: antialiased;
+//             display: inline-block;
+//             font-style: normal;
+//             font-variant: normal;
+//             text-rendering: auto;
+//             line-height: 1;
+//             color:$color;
+
+//             &.side__block-icon--balance-scale:before {
+//                 content: "\f24e";
+//             }
+//             &.side__block-icon--utensils:before {
+//                 content: "\f2e7";
+//             }
+//             &.side__block-icon--heart:before {
+//                 content: "\f004"
+//             }
+//         }
+
+//     }
+
+//     &.side--one {
+//         background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
+        
+//         @include desktop {
+//             .side__content {
+//                 padding: 0 100px;
+//             }
+
+//             .side__body {
+//                 width:50%;
+//             }
+//         }
+        
+//         .side__body {
+//             font-weight: 100;
+//             letter-spacing: 1px;
+//         }
+        
+//     }
+//     &.side--two {
+//         background: #222;
+//         color:#fff;
+//     }
+    
+//     &.side--three {
+//         background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/20-forsakra-1.jpg');
+    
+//         .side__content {
+//             margin: 0 auto;
+//             width:50%;
+//             left: 0;
+//             right: 0;
+//         }
+//     }
+    
+//     &.side--four {
+//         background-image: url('https://www.skandia.se/globalassets/bilder/ovrigt-specifika-sidor---gor-en-mapp/kampanj-bolan/splash-med-110-procent-med-text.jpg');
+//         //background-image: url('https://images.ctfassets.net/wy4h2xf1swlt/1NSDfLwKaqG4Tkf9n9F6jf/02ae6117091dffc4de74d32770e85b68/iStock-689709414.jpg');
+//         color:#fff;
+//         .side__content {
+//             padding-left: 100px;
+//         }
+//     }
+    
+// }
+
+// .recipe {
+//     display: grid;
+//     grid-template-areas:
+//         'header header header'
+//         'ingredients instructions instructions';
+
+//     grid-column-gap: 50px;
+//     //grid-template-columns: 1fr 1fr 2fr;
+
+//     max-width:50vw;
+//     margin:0 auto;
+//     .recipe__description {
+//         grid-area: header;
+//     }
+
+//     .recipe__ingredients {
+//         grid-area: ingredients;
+//         display: inline-block;
+//         vertical-align: top;
+
+//         .recipe__ingredients-header {
+//             font-size: 24pt;
+//         }
+//         .recipe__ingredients-list {
+//             font-size: 16pt;
+//             .recipe__ingredients-list-item {
+//                 position: relative;
+//                 padding-left:20px;
+//                 margin-bottom:10px;
+//                 &:before {
+//                     content: "";
+//                     background: $color;
+//                     border-radius: 50%;
+//                     height: 7px;
+//                     left: 2px;
+//                     position: absolute;
+//                     top: 4px;
+//                     width: 7px;
+//                 }
+//             }
+//         }
+//     }
+
+//     .recipe__instructions {
+//         grid-area: instructions;
+//         display: inline-block;
+//         vertical-align: top;
+
+//         .recipe__instructions-header {
+//             font-size: 24pt;
+//         }
+//         .recipe__instructions-list {
+//             counter-reset: step;
+//             font-size: 16pt;
+//             .recipe__instructions-list-item {
+//                 position: relative;
+//                 padding-left:40px;
+//                 margin-bottom:20px;
+//                 &:before {
+//                     content: counter(step);
+//                     box-sizing: border-box;
+//                     counter-increment: step;
+//                     background: $color;
+//                     color: #fff;
+//                     text-align: center;
+//                     padding-top: 6px;
+//                     font-size: 12pt;
+
+//                     width:24px;
+//                     height:24px;
+//                     border-radius: 50%;
+//                     left: 2px;
+//                     position: absolute;
+//                     top: -4px;
+//                 }
+//             }
+//         }
+//     }
+
+// }
