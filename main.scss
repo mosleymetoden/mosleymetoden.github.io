@@ -142,7 +142,6 @@ html, body {
     background-size: cover;
     background-position: center;
     position: relative;
-    border:1px solid hotpink;
 
     @include large() {
         min-height:100vh;
@@ -157,6 +156,11 @@ html, body {
 
         @include large() {
             width:50%;
+        }
+
+        &.side__heading--centered {
+            width: 100%;
+            text-align: center;
         }
     }
 
@@ -183,12 +187,25 @@ html, body {
     }
     
     .side__content {
+        &.side__content--horizontally-centered\@large {
+            @include large() {
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                right: 20px;
+                transform: translateY(-50%);
+            }
+        }
         &.side__content--horizontally-centered {
             position: absolute;
             top: 50%;
             left: 20px;
             right: 20px;
             transform: translateY(-50%);
+        }
+        
+        &.side__content--vertically-centered {
+            text-align: center;
         }
         
     }
@@ -295,7 +312,7 @@ html, body {
 
 .side--one {
     background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
-    background-image: url('https://images.ctfassets.net/wy4h2xf1swlt/1NSDfLwKaqG4Tkf9n9F6jf/02ae6117091dffc4de74d32770e85b68/iStock-689709414.jpg');
+    background-image: url('/assets/images/side--one.jpg');
 }
 .side--two {
     background: #222;
@@ -304,11 +321,21 @@ html, body {
 
 .side--three {
     background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/20-forsakra-1.jpg');
+    background-image: url('/assets/images/side--three.jpg');
 }
 
 .side--four {
-    background-image: url('https://www.skandia.se/globalassets/bilder/ovrigt-specifika-sidor---gor-en-mapp/kampanj-bolan/splash-med-110-procent-med-text.jpg');
-    
+    background: #fff;
+
+    .side__heading {
+        font-weight: 900;
+        color:#000;
+        text-shadow: none;
+
+        @include large() {
+            width:50%;
+        }
+    }
 }
 
 // .side {

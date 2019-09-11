@@ -55,7 +55,7 @@ title: Hello
     <a class="side__read-more" href="#four"></a>
 </div> -->
 <div id="three" class="side side--three">
-    <div class="side__content">
+    <div class="side__content side__content--horizontally-centered@large">
         <div class="side__block-container">
             <div class="side__block">
                 <i class="side__block-icon side__block-icon--balance-scale"></i>
@@ -104,8 +104,8 @@ title: Hello
 </div>
 
 <div id="four" class="side side--four">
-    <div class="side__content">
-        <h1 class="side__heading">Bolån från 1,10%</h1>
+    <div class="side__content side__content--vertically-centered">
+        <h1 class="side__heading side__heading--centered">Recept</h1>
 
         {% for recipe in site.recept %}
         <a href="{{ recipe.url }}">
