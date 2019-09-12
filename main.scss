@@ -22,6 +22,12 @@ $color: rgb(255, 0, 128);
     }
 }
 
+@mixin x-small {
+	@media (max-width: 575.98px) {
+		@content;
+	}
+}
+
 @mixin small {
 	@media (min-width: 576px) and (max-width: 767.98px) {
 		@content;
@@ -33,9 +39,15 @@ $color: rgb(255, 0, 128);
 	}
 }
 @mixin large {
-	@media (min-width: 992px) {
+	@media (min-width: 992px) and (max-width: 1199.98px) {
 		@content;
 	}
+}
+
+@mixin x-large {
+    @media (min-width: 1200px) {
+        @content;
+    }
 }
 
 * {
@@ -45,7 +57,6 @@ html, body {
     margin:0;
     padding:0;
     font-family: 'Manjari', sans-serif;
-    //overflow-x:hidden;
 }
 a {
     color: #000;
@@ -61,8 +72,15 @@ a {
     font-weight: 900;
     font-size: 18pt;
     display: inline-block;
-    padding: .6em .7em .3em .7em;
+    padding: .6em .8em .3em .8em;
     border-radius: 10px;
+    border:none;
+    font-family: 'Manjari', sans-serif;
+
+    &:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
 
     &.button--fullwidth {
         display: block;
@@ -71,9 +89,6 @@ a {
 
     &.button--large {
         font-size: 2em;
-    }
-    &.button--rounded {
-        
     }
 }
 
@@ -170,7 +185,7 @@ a {
         text-shadow: 0 0 3px #000;
         //word-break: break-all;
 
-        @include large() {
+        @include x-large() {
             width:50%;
         }
 
@@ -188,7 +203,7 @@ a {
         color:#fff;
         font-size: 12pt;
 
-        @include large() {
+        @include x-large() {
             width:50%;
         }
     }
@@ -204,7 +219,7 @@ a {
     
     .side__content {
         &.side__content--horizontally-centered\@large {
-            @include large() {
+            @include x-large() {
                 position: absolute;
                 top: 50%;
                 left: 20px;
@@ -256,10 +271,15 @@ a {
 
 
     .side__block-container {
-        @include medium() {
-            
-        }
         @include large() {
+            display: grid;
+            grid-column-gap: 20px;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin:0 auto;
+            max-width:100vw;
+        }
+
+        @include x-large() {
             display: grid;
             grid-column-gap: 50px;
             grid-template-columns: 1fr 1fr 1fr;
@@ -359,6 +379,17 @@ a {
     }
 }
 
+.list {
+    text-align: center;
+    &.list--centered {
+
+    }
+
+    .list__item {
+        margin-top:20px;
+    }
+}
+
 .recipe-preview {
     width: 100%;
     margin-bottom: 20px;
@@ -380,8 +411,6 @@ a {
 
         height: 0;
         padding-top: 56.25%;
-
-
     }
     .recipe-preview__title {
         margin-top: 30px;
@@ -502,4 +531,27 @@ a {
         }
     }
 
+}
+
+
+.form {
+    
+    .form__group {
+        margin-bottom: 20px;
+        .form__group-label {
+            display: block;
+            font-size: 1.4em;
+
+        }
+        .form__group-input,
+        .form__group-textarea {
+            font-family: 'Manjari', sans-serif;
+            display: block;
+            width: 100%;
+            padding: 14px 10px 10px 10px;
+            font-size: 1.4em;
+            border:none;
+            background: #fff;
+        }
+    }
 }
