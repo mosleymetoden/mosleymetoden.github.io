@@ -60,6 +60,7 @@ html, body {
 }
 a {
     color: #000;
+    color: $color;
     text-decoration: none;
     &:hover {
         color: $color;
@@ -195,16 +196,25 @@ a {
         }
     }
 
+    .side__sub-heading {
+        font-size: 2em;
+        font-weight: 900;
+        color: #000;
+    }
+
     .side__body {
         display: block;
-        padding:30px;
-        margin-top: 30px;
-        background:rgba(0,0,0,.8);
-        color:#fff;
         font-size: 12pt;
 
         @include x-large() {
             width:50%;
+        }
+    }
+
+    .side__body-paragraph {
+        margin-top: 20px;
+        &:first-child {
+            margin-top:0;
         }
     }
 
@@ -354,10 +364,24 @@ a {
 .side--one {
     background-image: url('https://www.skandia.se/globalassets/bilder/fokuspunkt/foton/topp/08-framgang.jpg?w=1920&h=1013&quality=95');
     background-image: url('/assets/images/side--one.jpg');
+
+    .side__body {
+        padding:30px;
+        margin-top: 30px;
+        background:rgba(0,0,0,.8);
+        color:#fff;
+    }
 }
 .side--two {
     background: #222;
     color:#fff;
+
+    .side__body {
+        padding:30px;
+        margin-top: 30px;
+        background:rgb(255,255,255);
+        color:#000;
+    }
 }
 
 .side--three {
@@ -366,16 +390,21 @@ a {
 }
 
 .side--four {
-    //background: $color;
-
     .side__heading {
         font-weight: 900;
         color:#000;
         text-shadow: none;
 
-        @include large() {
+        @include x-large() {
             width:50%;
         }
+    }
+
+    .side__body {
+        padding:30px;
+        margin-top: 30px;
+        background:rgb(255,255,255);
+        color:#000;
     }
 }
 
@@ -394,13 +423,6 @@ a {
     width: 100%;
     margin-bottom: 20px;
 
-    // @include medium() {
-    //     width: 25%;
-    // }
-    @include large() {
-        //width: 25%;
-    }
-
     .recipe-preview__image {
         position: relative;
         width: 100%;
@@ -416,6 +438,7 @@ a {
         margin-top: 30px;
         font-size: 1.5em;
         font-weight: 900;
+        color:#000;
     }
 }
 
