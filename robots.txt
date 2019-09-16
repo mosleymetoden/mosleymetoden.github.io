@@ -1,0 +1,4 @@
+https://mosleymetoden.se/sitemap.xml
+
+User-agent: * 
+Disallow: /tack-for-ditt-meddelande.html
