@@ -4,7 +4,7 @@ image: nudelsallad-med-jordnotter-och-notfars.jpg
 nutrition:
     kcal: 287
 ingredients:
-    - 100 g Shiratakinudlar
+    - Ett paket Shiratakinudlar
     - 100 g 10% nötfärs
     - 50 g finstrimlad morot
     - 50 g finstrimlad zucchini
@@ -23,6 +23,6 @@ method:
     
 layout: recipe
 ---
-Shiratakinudlar är ett i princip kalorifritt livsmedel som är bra "bulk" att fylla ut med i rätter. De brukar gå att få tag i välsorterade mataffärer.
+Shiratakinudlar (även kallat conjaksnudlar) är ett i princip kalorifritt livsmedel som är bra "bulk" att fylla ut med i rätter. De brukar gå att få tag i välsorterade mataffärer.
 Denna nudelsallad är packad med mättande proteiner och bra fett. Vill du riktigt hetta till den så rekomenderar vi att köpa bird eye chili eller pirri pirri på din lokala asian supermarket.
  
