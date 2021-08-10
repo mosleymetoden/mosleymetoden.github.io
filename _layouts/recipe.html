@@ -34,3 +34,28 @@ layout: default
     </div>
     
 </div>
+
+<div id="four" class="side side--four">
+    <div class="side__content side__content--horizontally-centered@large side__content--vertically-centered">
+        <h1 class="side__heading side__heading--centered">Recept</h1>
+
+        <div class="side__block-container">
+            {% for recipe in site.recept %}
+            <div class="side__block side__block--no-padding">
+                <a href="{{ recipe.url }}">
+                    <div class="recipe-preview">
+                        <div class="recipe-preview__image" style="background-image: url('/assets/images/{{ recipe.image }}')"></div>
+                        <h4 class="recipe-preview__title">{{ recipe.title }} ({{ recipe.nutrition.kcal }} kcal)</h4>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="button button--large" href="/recept">
+            Visa alla recept
+        </a>
+
+    </div>
+    <a class="side__to-top" href="#one"></a>
+
+</div>
