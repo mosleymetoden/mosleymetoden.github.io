@@ -2,7 +2,7 @@
 title: Röd curry med med nudlar kyckling och grönsaker
 image: rod-curry-med-med-nudlar-kyckling-och-gronsaker.jpg
 nutrition:
-    kcal: 287
+    kcal: 420
 ingredients:
     - Fyra paket Shiratakinudlar
     - 1 kg kycklingfile (en normalstor file)
@@ -24,7 +24,7 @@ method:
     - Tillsätt kokosmjölken och vattnet och koka upp för att sedan låta allt sjuda
     - Strimla kycklingen i centimetertjocka skivor eller strimlor.
     - Sjud alltsammans minst 10 minuter. 
-    - Läg de finstrimlade grönsakerna i en djup talrik/skål, slå på 1,5 dl varm gryta och sedan kyckling motsvarande unefär en file.    
+    - Läg de finstrimlade grönsakerna i en djup talrik/skål, slå på 1,5 dl varm gryta/soppa och sedan kyckling motsvarande unefär en file.    
     
 layout: recipe
 ---

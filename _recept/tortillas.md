@@ -21,4 +21,4 @@ method:
 
 layout: recipe
 ---
-Detta är en myckt bra bas att lägga lite vad man vill i. En strimlad kycklingfile och lite strimlade grönsaker eller varför inte köttfärs med låg fetthalt och lite salsasås så är tacokvällen räddad.
+Detta är en myckt bra bas att lägga lite vad man vill i. En strimlad kycklingfile och lite strimlade grönsaker eller varför inte köttfärs med låg fetthalt och lite salsasås så är tacokvällen räddad. Jag brukar göra en stor omgång av detta och ha bollarna i båse i kylskåpet. De håller flera dagar i kyl och när jag vill äta så tar jag bara ut två bollar, kavlar ut och steker. Hur smidigt som helst. :)
