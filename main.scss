@@ -1,9 +1,11 @@
 ---
 ---
 @import url('https://fonts.googleapis.com/css?family=Manjari:100,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900');
 
 $color: rgb(255, 0, 128);
-//$color: #008266;
+$color: #008266;
 
 
 @mixin icon($content) {
@@ -22,51 +24,26 @@ $color: rgb(255, 0, 128);
     }
 }
 
-@mixin x-small {
-	@media (max-width: 575.98px) {
-		@content;
-	}
-}
-
-@mixin small {
-	@media (min-width: 576px) and (max-width: 767.98px) {
-		@content;
-	}
-}
-@mixin medium {
-	@media (min-width: 768px) and (max-width: 991.98px) {
-		@content;
-	}
-}
-@mixin large {
-	@media (min-width: 992px) and (max-width: 1199.98px) {
-		@content;
-	}
-}
-
-@mixin x-large {
-    @media (min-width: 1200px) {
-        @content;
-    }
-}
-
-* {
-    box-sizing: border-box;
-}
 html, body {
     margin:0;
     padding:0;
-    font-family: 'Manjari', sans-serif;
+    margin-top: 40px;
+    
+    background:#f8f8f8;
+    font-family: 'Roboto', sans-serif;
 }
-a {
-    color: #000;
-    color: $color;
-    text-decoration: none;
-    &:hover {
-        color: $color;
-    }   
+// a {
+//     color: #000;
+//     color: $color;
+//     text-decoration: none;
+//     &:hover {
+//         color: $color;
+//     }   
+// }
+.spacer {
+    display: block;
+    height: 20px;
 }
-
 .button {
     background: $color;
     color: #fff;
@@ -94,14 +71,23 @@ a {
     }
 }
 
-.logo {
+.top {
+    background: #000;
     position: fixed;
-    z-index: 1001;
+    z-index: 1;
+    top: 0;
+    left:0;
+    right: 0;
+    height:70px;
+}
+.logo {
+    position: absolute;
     top: 10px;
-    left: 10px;
+    left: 20px;
+    font-family: 'Manjari', sans-serif;
 
     .logo__first {
-        color: #000;
+        color: #fff;
         display: block;
         font-size: 18pt;
         font-weight: 900;
@@ -110,31 +96,32 @@ a {
         color: $color;
         display: block;
         font-size: 15pt;
-        font-weight: 100;
+        font-weight: 400;
         line-height: 10pt;
     }
 }
-
 
 .menu {
     .menu__icon {
         @include icon('\f0c9');
 
-        position: fixed;
-        z-index: 1001;
-        top: 10px;
-        right: 10px;
+        position: absolute;
+        z-index: 1003;
+        top: 20px;
+        right: 20px;
         font-size: 32px;
+        color:#fff;
 
         &.menu__icon--open {
             @include icon('\f00d');
+            color: #000;
         }
     }
     .menu__menu {
         display:none;
 
-        position: fixed;
-        z-index: 1000;
+        position: absolute;
+        z-index: 1002;
         height: 100vh;
         top: 0;
         left: 0;
@@ -164,270 +151,25 @@ a {
     }
 }
 
-
-.side {
+h1 {
+    font-size: 48px;
     display: block;
-    width:100%;
-    min-height: 100vh;
-    padding: 60px 20px 20px 20px;
-    background:#eee;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-
-    @include large() {
-        min-height:100vh;
-    }
-
-    .side__heading {
-        font-size: 3em;
-        font-weight: 900;
-        color: #fff;
-        text-shadow: 0 0 3px #000;
-        //word-break: break-all;
-
-        @include x-large() {
-            width:50%;
-        }
-
-        &.side__heading--centered {
-            width: 100%;
-            text-align: center;
-        }
-    }
-
-    .side__sub-heading {
-        font-size: 2em;
-        font-weight: 900;
-        color: #000;
-    }
-
-    .side__body {
-        display: block;
-        font-size: 12pt;
-
-        @include x-large() {
-            width:50%;
-        }
-    }
-
-    .side__body-paragraph {
-        margin-top: 20px;
-        &:first-child {
-            margin-top:0;
-        }
-    }
-
-    .side__body-list {
-        list-style: circle;
-        margin-left: 20px;
-        margin-top: 20px;
-        li {
-            margin-bottom: 10px;
-        }
-    }
-    
-    .side__content {
-        &.side__content--horizontally-centered\@large {
-            @include x-large() {
-                position: absolute;
-                top: 50%;
-                left: 20px;
-                right: 20px;
-                transform: translateY(-50%);
-            }
-        }
-        &.side__content--horizontally-centered {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-        
-        &.side__content--vertically-centered {
-            text-align: center;
-        }
-        
-    }
-
-    .side__to-top,
-    .side__read-more {
-        display: block;
-        width:50px;
-        height:50px;
-        border-radius: 50%;
-        background:#0008;
-        color:#fff;
-        text-align:center;
-        font-size: 25px;
-        text-decoration: none;
-        padding-top:12px;
-
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-25px);
-
-        &.side__to-top {
-            @include icon('\f106');
-        }
-        &.side__read-more {
-            @include icon('\f107');
-        }
-    }
-
-
-
-
-    .side__block-container {
-        @include large() {
-            display: grid;
-            grid-column-gap: 20px;
-            grid-template-columns: 1fr 1fr 1fr;
-            margin:0 auto;
-            max-width:100vw;
-        }
-
-        @include x-large() {
-            display: grid;
-            grid-column-gap: 50px;
-            grid-template-columns: 1fr 1fr 1fr;
-            margin:0 auto;
-            max-width:50vw;
-        }
-
-        .side__block {
-            position: relative;
-            background: #fffe;
-            min-height: 300px;
-            border-radius: 5px;
-            padding:40px;
-            text-align: center;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .side__block--no-padding {
-            padding:0;
-        }
-
-        .side__block-button {
-            display: block;
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            right: 40px;
-            border-radius: 5px;
-        }
-
-        .side__block-header {
-            font-size: 2em;
-            margin:20px;
-        }
-        .side__block-body {
-            display: block;
-            // padding-bottom:90px;
-        }
-        .side__block-body-paragraph {
-            margin-bottom: 20px;
-        }
-
-        .side__block-icon {
-            font-size: 40px;
-            font-weight: 900;
-            font-family: "Font Awesome 5 Free";
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-font-smoothing: antialiased;
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            text-rendering: auto;
-            line-height: 1;
-            color:$color;
-
-            &.side__block-icon--balance-scale:before {
-                content: "\f24e";
-            }
-            &.side__block-icon--utensils:before {
-                content: "\f2e7";
-            }
-            &.side__block-icon--heart:before {
-                content: "\f004"
-            }
-        }
-
-    }
-    
-}
-
-.side--one {
-    background-image: url('/assets/images/side--one.jpg');
-
-    .side__body {
-        padding:30px;
-        margin-top: 30px;
-        background:rgba(0,0,0,.8);
-        color:#fff;
-    }
-}
-.side--two {
-    background: #222;
-    color:#fff;
-
-    .side__body {
-        padding:30px;
-        margin-top: 30px;
-        background:rgb(255,255,255);
-        color:#000;
-    }
-}
-
-.side--three {
-    background-image: url('/assets/images/side--three.jpg');
-}
-
-.side--four {
-    padding-bottom: 100px;
-    .side__heading {
-        font-weight: 900;
-        color:#000;
-        text-shadow: none;
-
-        @include x-large() {
-            width:50%;
-        }
-    }
-
-    .side__body {
-        padding:30px;
-        margin-top: 30px;
-        background:rgb(255,255,255);
-        color:#000;
-    }
-}
-
-
-.side--five {
-    background-image: url('/assets/images/motivation.jpg');
-
-    .side__body {
-        padding:30px;
-        margin-top: 30px;
-        background:rgba(0,0,0,.8);
-        color:#fff;
-    }
-}
-
-.list {
     text-align: center;
-    &.list--centered {
+    font-family: 'Merriweather', serif;
+}
+.puff {
+    background: #fff;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
 
-    }
-
-    .list__item {
-        margin-top:20px;
+.icon-block {
+    text-align: center;
+    i.bi {
+        font-size: 128px;
+        color: hotpink;
     }
 }
 
@@ -451,15 +193,11 @@ a {
         font-size: 1.5em;
         font-weight: 900;
         color:#000;
+        text-align: center;
     }
 }
 
-.recipe {
-    @include large() {
-        max-width:50vw;
-        margin:0 auto;
-    }
-    
+.recipe {    
     .recipe__title {
         position: absolute;
         top: 50%;
@@ -472,10 +210,6 @@ a {
         font-weight: 900;
         color: #fff;
         text-shadow: 0 0 3px #000;
-
-        @include large() {
-            font-size: 4em;
-        }
     }
 
     .recipe__image {
@@ -489,83 +223,6 @@ a {
         height: 0;
         padding-top: 56.25%;
     }
-
-    .recipe__description {
-        text-align: center;
-        font-size: 18pt;
-        padding: 10px;
-        p {
-            margin: 10px;
-        }
-    }
-
-    .recipe__nutrition {
-        font-size: 2em;
-        text-align: center;
-    }
-
-    .recipe__ingredients {
-        display: block;
-        padding: 20px;
-
-        .recipe__ingredients-header {
-            font-size: 24pt;
-        }
-        .recipe__ingredients-list {
-            font-size: 16pt;
-            .recipe__ingredients-list-item {
-                position: relative;
-                padding-left:20px;
-                margin-bottom:10px;
-                &:before {
-                    content: "";
-                    background: $color;
-                    border-radius: 50%;
-                    height: 7px;
-                    left: 2px;
-                    position: absolute;
-                    top: 4px;
-                    width: 7px;
-                }
-            }
-        }
-    }
-
-    .recipe__instructions {
-        display: block;
-        padding: 20px;
-
-        .recipe__instructions-header {
-            font-size: 24pt;
-        }
-        .recipe__instructions-list {
-            counter-reset: step;
-            font-size: 16pt;
-            .recipe__instructions-list-item {
-                position: relative;
-                padding-left:40px;
-                margin-bottom:20px;
-                &:before {
-                    content: counter(step);
-                    box-sizing: border-box;
-                    counter-increment: step;
-                    background: $color;
-                    color: #fff;
-                    text-align: center;
-                    padding-top: 6px;
-                    font-size: 12pt;
-
-                    width:24px;
-                    height:24px;
-                    border-radius: 50%;
-                    left: 2px;
-                    position: absolute;
-                    top: -4px;
-                }
-            }
-        }
-    }
-
 }
 
 
@@ -585,8 +242,6 @@ a {
             width: 100%;
             padding: 14px 10px 10px 10px;
             font-size: 1.4em;
-            border:none;
-            background: #fff;
         }
     }
 }
