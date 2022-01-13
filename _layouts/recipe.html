@@ -6,20 +6,36 @@ layout: default
     <div class="row">
         <div class="col">
             <div class="recipe">
-                <div class="recipe__image" style="background-image: url('/assets/images/{{ page.image }}')">
-                    <h1 class="recipe__title">{{ page.title }}</h1>
+                
+                
+                <div class="puff">
+                    <div class="recipe__image" style="background-image: url('/assets/images/{{ page.image }}')">
+                        <h1 class="recipe__title">{{ page.title }}</h1>
+                    </div>
+
+                    {{ content }}
                 </div>
 
-                <div class="recipe__description">
-                    {{ content }}
+                <div class="row">
+                    <div class="col">
+                        <div class="puff  text-center">
+                            <a href="https://amzn.to/3qkKFgS" target="_blank">
+                                <img class="rounded img-fluid"
+                                    src="https://images-na.ssl-images-amazon.com/images/I/5166kn7eIPL._SX433_BO1,204,203,200_.jpg"
+                                    alt="Book cover" />
+                                <div class="spacer"></div>
+                                <span class="btn btn-primary btn-lg">Köp receptboken här <i class="bi bi-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="recipe__nutrition">
                     {{ page.nutrition.kcal }} kcal
                 </div>
 
-                <div class="recipe__ingredients">
-                    <h4 class="recipe__ingredients-header">Du behöver</h4>
+                <div class="puff recipe__ingredients">
+                    <h4 class="recipe__ingredients-header">Ingredienser</h4>
                     <ul class="recipe__ingredients-list">
                         {% for ingredient in page.ingredients %}
                         <li class="recipe__ingredients-list-item">{{ ingredient }}</li>
@@ -27,13 +43,27 @@ layout: default
                     </ul>
                 </div>
 
-                <div class="recipe__instructions">
+                <div class="puff recipe__instructions">
                     <h4 class="recipe__instructions-header">Gör så här</h4>
                     <ol class="recipe__instructions-list">
                         {% for method in page.method %}
                         <li class="recipe__instructions-list-item">{{ method }}</li>
                         {% endfor %}
                     </ol>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="puff text-center">
+                            <a href="https://amzn.to/31PCfoi" target="_blank">
+                                <img class="rounded img-fluid"
+                                    src="/assets/images/mosleybook.jpg"
+                                    alt="Book cover" />
+                                <div class="spacer"></div>
+                                <span class="btn btn-primary btn-lg">Köp Dr. Mosleys bok här <i class="bi bi-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
             </div>

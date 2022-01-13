@@ -152,7 +152,8 @@ html, body {
 }
 
 h1 {
-    font-size: 48px;
+    padding-top: 80px;
+    font-size: 32px;
     display: block;
     text-align: center;
     font-family: 'Merriweather', serif;
@@ -167,7 +168,7 @@ h1 {
 
 .icon-block {
     text-align: center;
-    i.bi {
+    .icon-block__icon {
         font-size: 128px;
         color: hotpink;
     }
