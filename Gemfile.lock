@@ -64,6 +64,7 @@ GEM
     wdm (0.1.1)
 
 PLATFORMS
+  universal-darwin-21
   x86_64-darwin-18
 
 DEPENDENCIES
@@ -76,4 +77,4 @@ DEPENDENCIES
   wdm (~> 0.1.0)
 
 BUNDLED WITH
-   2.2.25
+   2.3.5
