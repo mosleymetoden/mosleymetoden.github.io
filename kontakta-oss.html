@@ -1,31 +1,24 @@
 ---
 layout: default
 ---
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Kontakta oss</h1>
-            <div class="puff">
-                <form method="POST" action="https://formspree.io/f/myyokykp" class="form">
-                    <div class="form__group">
-                        <label class="form__group-label" for="email">E-post</label>
-                        <input class="form__group-input" type="email" name="_replyto" placeholder="Fyll i om du vill vi skall svara dig">
-                    </div>
-                    <div class="form__group">
-                        <label class="form__group-label" for="name">Namn</label>
-                        <input class="form__group-input" type="text" name="namn" placeholder="Berätta gärna vad du heter">
-                    </div>
-                    <div class="form__group">
-                        <label class="form__group-label" for="message">Meddelande</label>
-                        <textarea class="form__group-textarea" name="message" rows="10" placeholder="Skriv ditt meddelande här..."></textarea>
-                    </div>
-
-                    <input type="hidden" name="_subject" value="Kontakta oss">
-                    <input type="hidden" name="_next" value="https://mosleymetoden.se/tack-for-ditt-meddelande/">
-
-                    <button type="submit" class="button">Skicka</button>
-                </form>
-            </div>
+<div class="side">
+    <form method="POST" action="https://formspree.io/f/myyokykp" class="form">
+        <div class="form__group">
+            <label class="form__group-label" for="email">E-post</label>
+            <input class="form__group-input" type="email" name="_replyto" placeholder="Fyll i om du vill vi skall svara dig">
         </div>
-    </div>
+        <div class="form__group">
+            <label class="form__group-label" for="name">Namn</label>
+            <input class="form__group-input" type="text" name="namn" placeholder="Berätta gärna vad du heter">
+        </div>
+        <div class="form__group">
+            <label class="form__group-label" for="message">Meddelande</label>
+            <textarea class="form__group-textarea" name="message" rows="10" placeholder="Skriv ditt meddelande här..."></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="Kontakta oss">
+        <input type="hidden" name="_next" value="https://mosleymetoden.se/tack-for-ditt-meddelande/">
+
+        <button type="submit" class="button">Skicka</button>
+    </form>
 </div>

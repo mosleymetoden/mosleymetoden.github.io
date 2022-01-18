@@ -1,20 +1,45 @@
 ---
 layout: default
 ---
-<div class="container">
-    <div class="row">
-        <h1>Recept</h1>
-        {% for recipe in site.recept %}
-        <div class="col-lg-4">
-            
-            <a href="{{ recipe.url }}">
-                <div class="recipe-preview puff">
-                    <div class="recipe-preview__image"
-                        style="background-image: url('/assets/images/{{ recipe.image }}')"></div>
-                    <h4 class="recipe-preview__title">{{ recipe.title }} ({{ recipe.nutrition.kcal }} kcal)</h4>
-                </div>
-            </a>
+<div class="side">
+    <div class="side__content side__content--vertically-centered">
+        <h1 class="side__heading side__heading--centered">Recept</h1>
+
+        <div class="side__block-container">
+            {% for recipe in site.recept %}
+            <div class="side__block side__block--no-padding">
+                <a href="{{ recipe.url }}">
+                    <div class="recipe-preview">
+                        <div class="recipe-preview__image" style="background-image: url('/assets/images/{{ recipe.image }}')"></div>
+                        <h4 class="recipe-preview__title">{{ recipe.title }} ({{ recipe.nutrition.kcal }} kcal)</h4>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+    </div>
+</div>
+<div class="side side--generic">
+    <div class="side__content side__content--horizontally-centered@large side__content--vertically-centered">
+        <h1 class="side__heading side__heading--centered">Receptboken</h1>
+        <a href="https://amzn.to/3qkKFgS" target="_blank">
+            <img class="rounded img-fluid"
+                src="https://images-na.ssl-images-amazon.com/images/I/5166kn7eIPL._SX433_BO1,204,203,200_.jpg"
+                alt="Book cover" />
+            <div class="spacer"></div>
+            <span class="button button--large">Köp receptboken här <i class="bi bi-arrow-right"></i></span>
+        </a>
+    </div>
+</div>
+<div class="side side--generic">
+    <div class="side__content side__content--horizontally-centered@large side__content--vertically-centered">
+        <h1 class="side__heading side__heading--centered">Boken</h1>        
+        <a href="https://amzn.to/31PCfoi" target="_blank">
+            <img class="rounded img-fluid"
+                src="/assets/images/mosleybook.jpg"
+                alt="Book cover" />
+            <div class="spacer"></div>
+            <span class="button button--large">Köp boken här <i class="bi bi-arrow-right"></i></span>
+        </a>
     </div>
 </div>
