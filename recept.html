@@ -5,6 +5,7 @@ layout: default
     <div class="side__content side__content--vertically-centered">
         <h1 class="side__heading side__heading--centered">Recept</h1>
 
+        {% include ad1.html %}
         <div class="side__block-container">
             {% for recipe in site.recept %}
             <div class="side__block side__block--no-padding">
@@ -19,6 +20,7 @@ layout: default
         </div>
     </div>
 </div>
+{% include ad2.html %}
 <div class="side side--generic">
     <div class="side__content side__content--horizontally-centered@large side__content--vertically-centered">
         <h1 class="side__heading side__heading--centered">Receptboken</h1>
@@ -31,6 +33,7 @@ layout: default
         </a>
     </div>
 </div>
+{% include ad3.html %}
 <div class="side side--generic">
     <div class="side__content side__content--horizontally-centered@large side__content--vertically-centered">
         <h1 class="side__heading side__heading--centered">Boken</h1>        
